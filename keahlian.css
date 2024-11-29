@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: Poppins;
+  text-decoration: none;
+}
+
+body {
+  background: var();
+  min-height: 100vh;
+}
+
+.box-keahlian-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 1.6em;
+}
+
+.box-keahlian {
+  position: relative;
+  border-radius: 12px;
+  width: 70%;
+  padding: 10px 2%;
+  background: #303030;
+  text-align: justify;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+.box-keahlian::after,
+.box-keahlian::before {
+  content: "";
+  position: absolute;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  z-index: -1;
+  padding: 3px;
+  border-radius: inherit;
+  inset: -0.2rem;
+  animation: rotation 8s linear infinite;
+}
+
+.box-keahlian::before {
+  filter: blur(3.5rem);
+  opacity: 0.5;
+}
+
+.box-keahlian h3 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.overflow-keahlian {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 350;
+  text-wrap: wrap;
+  gap: 2em;
+}
+
+.overflow-keahlian-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 350;
+  text-wrap: wrap;
+}
+
+.overflow-keahlian img,
+.overflow-keahlian-list img {
+  width: 300px;
+  border-radius: 12px;
+}
